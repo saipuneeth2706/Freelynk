@@ -49,7 +49,7 @@ header{
 .hero_section{
     display: flex;
     /* border: 1px black solid; */
-    height:70%;
+    height:70vh;
     width: 100%;
     flex-direction: row;
     align-items: center;
@@ -64,7 +64,7 @@ header{
 }
 .hero_img{
     /* border:1px black solid; */
-    height:100%;
+    height: 140%;
     width: auto;
     object-fit: contain;
 }
@@ -123,7 +123,7 @@ button {
 .about_us{
     background-color: #141140;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     color: #FBEDD9;
     display: flex;
     flex-direction: column;
@@ -144,15 +144,35 @@ button {
     width: 900px;
 }
 .bento_grid {
+  font-family: "Poppins", sans-serif;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
+  height: 800px;
+  margin-bottom: 125px;
 }
-
+.bento_title{
+  font-family: "Manrope", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+.box4{
+  grid-column: span 2;
+  margin-top: 15px;
+}
+.box5{
+  margin-top: 15px;
+}
+.box7{
+  grid-column: span 2;
+  margin-top: 15px;
+}
+.box6{
+  margin-top: 15px;
+}
 .bento-card {
   position: relative;
   padding: 1.5rem;
@@ -176,11 +196,162 @@ button {
 
 .emoji {
   position: absolute;
-  top: -1.2rem;
-  left: 1rem;
+  top: -2rem;
+  left: 0.5rem;
   background: #19182c;
   padding: 0.5rem;
+  height: 3.5rem;
+  width: 3.5rem;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bento_content{
+  margin-top: 10px;
+}
+.how_it_works{
+  height: 120vh;
+  width: 100%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  background-color: #FBEDD9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -50px;
+}
+.how_it_works_title{
+  font-family: "Manrope", sans-serif;
+  font-size: 60px;
+  margin-bottom: 150px;
+  font-weight: 800;
+  margin-top: 40px;
+}
+.cards{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+.card1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+  width: 400px;
+  background-color: #D9D9D9;
+  border-radius: 30px;
+}
+.card2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+  width: 400px;
+  background-color: #D9D9D9;
+  border-radius: 30px;
+}
+.card3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+  width: 400px;
+  background-color: #D9D9D9;
+  border-radius: 30px;
+}
+.card_emoji{
+  font-size: 40px;
+  border-radius: 50%;
+  background-color: #26B6F3;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top : -2rem;
+  position: relative;
+}
+.card_title{
+  font-family: "Manrope", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.card_content{
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin-left: 40px;
+  margin-right: 30px;
+}
+.title_card_content{
+  font-weight: 600;
+  position:relative;
+  top: -10px;
+}
+.cta_recall{
+  height: 350px;
+  width: 100%;
+  background: linear-gradient(90deg, #141140 0%, #26B6F3 100%);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cta_title{
+  font-family: Manrope;
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.cta_button_recall{
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  height: 60px;
+  width: 250px;
+  background-color: #FBEDD9;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  font-size: 20px;
+}
+.text_recall_cta_button{
+  background: linear-gradient(90deg, #141140 0%, #26B6F3 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.footer_logo_img{
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.footer_img_title{
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.footer_title_color{
+  color: #26B6F3;
+}
+.footer_logo_container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }

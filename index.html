@@ -1,144 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Freelynk</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <img src="Freelynk-logo.png" alt="LOGO HERE" class="logo">
-        <div class="header_button">
-            <div class="line1"></div>
-            <div class="line2"></div>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+  </head>
+  <body>
+    <div id="main">
+      <div class="header_page">
+        <div class="top_part">
+            <img src="Freelynk-logo.png" class="top_logo">
         </div>
-    </header>
-    <div class="hero_section">
-        <div class="hero_text">Your Talent <br>Your Platform <br>Your <span class="highlight">Choice.</span></div>
-        <img src="./hero_img_org.png" alt="hero image" class="hero_img">
-    </div>
-    <div class="rectangle_cta">
-        <button class="main_cta">Join as a Freelancer</button>
-        <button class="secondary_cta">Hire a Freelancer</button>
-    </div>
-    <div class="about_us">
-        <div class="about_title">Why Freelynk?</div>
-        <div class="about_content">Freelynk is a modern freelancing platform built to bridge the gap between talented individuals and real-world opportunities. Whether you're a creative, a coder, or a consultant — Freelynk gives you the tools to showcase your skills, connect with clients, and grow your career.</div>
-        <div class="bento_grid">
+        <div class="header_list"></div>
+      </div>
+      <header>
+        <img src="Freelynk-logo.png" alt="LOGO HERE" class="logo" />
+        <div class="header_button">
+          <div class="line1"></div>
+          <div class="line2"></div>
+        </div>
+      </header>
+      <div class="hero_section">
+        <div class="hero_text">
+          Your Talent, <br />Your Platform, <br />Your
+          <span class="highlight">Choice.</span>
+        </div>
+        <img src="./hero_img.png" alt="hero image" class="hero_img" />
+      </div>
+      <div class="why_freelynk">
+        <div class="rectangle_cta">
+          <button class="main_cta">Join as a Freelancer</button>
+          <button class="secondary_cta">Hire a Freelancer</button>
+        </div>
+        <div class="about_us">
+          <div class="about_title">Why Freelynk?</div>
+          <div class="about_content">
+            Freelynk is a modern freelancing platform built to bridge the gap
+            between talented individuals and real-world opportunities. Whether
+            you're a creative, a coder, or a consultant — Freelynk gives you the
+            tools to showcase your skills, connect with clients, and grow your
+            career.
+          </div>
+          <div class="bento_grid">
             <div class="bento-card blue-light">
-                <span class="emoji">⚡</span>
-                <h3 class="bento_title">Fast & Minimal Interface</h3>
-                <p class="bento_content">Experience a clutter-free environment that keeps things simple and efficient.
-                    Freelynk is designed with a clean, minimal interface so you can focus entirely on your work and not get lost in endless menus or distractions. Everything you need is right where it should be — intuitive and lightning fast.</p>
+              <span class="emoji">⚡</span>
+              <h3 class="bento_title">Fast & Minimal Interface</h3>
+              <p class="bento_content">
+                Experience a clutter-free environment that keeps things simple
+                and efficient. Freelynk is designed with a clean, minimal
+                interface so you can focus entirely on your work and not get
+                lost in endless menus or distractions. Everything you need is
+                right where it should be — intuitive and lightning fast.
+              </p>
             </div>
 
             <div class="bento-card blue">
-                <span class="emoji">👨‍💻</span>
-                <h3 class="bento_title">Built for Freelancers</h3>
-                <p class="bento_content">Tailored specifically for the Indian freelance ecosystem.
-                    Whether you're a developer, designer, writer, or consultant, Freelynk understands the unique needs of Indian freelancers. From easy onboarding to culturally relevant workflows, everything is built with you in mind.</p>
+              <span class="emoji">👨‍💻</span>
+              <h3 class="bento_title">Built for Freelancers</h3>
+              <p class="bento_content">
+                Tailored specifically for the Indian freelance ecosystem.
+                Whether you're a developer, designer, writer, or consultant,
+                Freelynk understands the unique needs of Indian freelancers.
+                From easy onboarding to culturally relevant workflows,
+                everything is built with you in mind.
+              </p>
             </div>
 
             <div class="bento-card cream">
-                <span class="emoji">🖥️</span>
-                <h3 class="bento_title">Showcase Your Work</h3>
-                <p class="bento_content">Your skills deserve the spotlight.
-                    Upload your best projects, build an eye-catching portfolio, and let clients see the value you bring to the table. With Freelynk, your profile becomes a personal showroom of your creativity and capabilities.</p>
+              <span class="emoji">🖥️</span>
+              <h3 class="bento_title">Showcase Your Work</h3>
+              <p class="bento_content">
+                Your skills deserve the spotlight. Upload your best projects,
+                build an eye-catching portfolio, and let clients see the value
+                you bring to the table. With Freelynk, your profile becomes a
+                personal showroom of your creativity and capabilities.
+              </p>
             </div>
 
             <div class="bento-card blue box4">
-                <span class="emoji">🎯</span>
-                <h3 class="bento_title">Straightforward Listings</h3>
-                <p class="bento_content">No fluff. Just real clients and real work.
-                    We keep things simple and transparent. Our job listings are clear, direct, and curated to help you find real opportunities without wasting time. What you see is what you get.</p>
+              <span class="emoji">🎯</span>
+              <h3 class="bento_title">Straightforward Listings</h3>
+              <p class="bento_content">
+                No fluff. Just real clients and real work. We keep things simple
+                and transparent. Our job listings are clear, direct, and curated
+                to help you find real opportunities without wasting time. What
+                you see is what you get.
+              </p>
             </div>
 
             <div class="bento-card blue-light box5">
-                <span class="emoji">📞</span>
-                <h3 class="bento_title">Direct Client Interaction</h3>
-                <p class="bento_content">Say goodbye to middlemen.
-                    Communicate directly with clients through our platform — message, negotiate, and collaborate seamlessly. Freelynk empowers you to build long-term relationships based on trust and communication.</p>
+              <span class="emoji">📞</span>
+              <h3 class="bento_title">Direct Client Interaction</h3>
+              <p class="bento_content">
+                Say goodbye to middlemen. Communicate directly with clients
+                through our platform — message, negotiate, and collaborate
+                seamlessly. Freelynk empowers you to build long-term
+                relationships based on trust and communication.
+              </p>
             </div>
 
             <div class="bento-card cream box6">
-                <span class="emoji">🏆</span>
-                <h3 class="bento_title">Earn Trust & Reputation</h3>
-                <p class="bento_content">Your track record speaks louder than words.
-                    Build your credibility by consistently delivering quality work. With each successful project, your reputation grows, making it easier to win new clients and charge what you're worth.</p>
+              <span class="emoji">🏆</span>
+              <h3 class="bento_title">Earn Trust & Reputation</h3>
+              <p class="bento_content">
+                Your track record speaks louder than words. Build your
+                credibility by consistently delivering quality work. With each
+                successful project, your reputation grows, making it easier to
+                win new clients and charge what you're worth.
+              </p>
             </div>
 
             <div class="bento-card blue-light box7">
-                <span class="emoji">🤝</span>
-                <h3 class="bento_title">Verified Clients & Projects</h3>
-                <p class="bento_content">We've got your back.
-                    Every listing on Freelynk is manually reviewed to ensure authenticity and reliability. No spam, no scams — just genuine projects from verified clients looking for talented freelancers like you.</p>
+              <span class="emoji">🤝</span>
+              <h3 class="bento_title">Verified Clients & Projects</h3>
+              <p class="bento_content">
+                We've got your back. Every listing on Freelynk is manually
+                reviewed to ensure authenticity and reliability. No spam, no
+                scams — just genuine projects from verified clients looking for
+                talented freelancers like you.
+              </p>
             </div>
-        </div>
-    </div>
-    <div class="how_it_works">
-      <div class="how_it_works_title">How It Works</div>
-      <div class="cards">
-        <div class="card1">
-          <div class="card_emoji">🧑‍💼</div>
-          <div class="card_title">1. Create Your Profile</div>
-          <div class="card_content"><span class="title_card_content">Showcase your strengths.</span> <br>Set up your freelancing profile in minutes — highlight your top skills, share your work experience, and build a beautiful portfolio that gets noticed. Make your first impression count</div>
-        </div>
-        <div class="card2">
-          <div class="card_emoji">🔎</div>
-          <div class="card_title">2. Find Projects</div>
-          <div class="card_content"><span class="title_card_content">Opportunities tailored for you.</span> <br>Explore a curated feed of gigs and project-based work, matched using smart filters and AI recommendations. Apply to jobs that align with your expertise and schedule.</div>
-        </div>
-        <div class="card3">
-          <div class="card_emoji">📈</div>
-          <div class="card_title">3. Grow Reputation</div>
-          <div class="card_content"><span class="title_card_content">Submit work. Get recognized.</span> <br>Once hired, complete your tasks on time and maintain open communication with clients. Get rated for your performance and grow your visibility across the platform. (Payment integration coming soon!)</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="cta_recall">
-      <div class="cta_title">Start Your Freelancing Journey Today!</div>
-      <button class="cta_button_recall"><span class="text_recall_cta_button">Get Started Now</span></button>
-    </div>
-    <footer>
-        <div class="footer_logo_container">
-            <div class="footer_logo_title">
-                <img src="./footer_logo.png" alt="Freelynk Logo" class="footer_logo_img">
-                <div class="footer_img_title">Your Talent,<br> Your Platform,<br> Your <span class="footer_title_color">Choice.</span></div></div>
-            <div class="footer_img_links">
-                <img src="./Mail.png" alt="email" class="img_footer">
-                <img src="./Github.png" alt="github" class="img_footer">
-                <img src="./Behance.png" alt="behance" class="img_footer">
+      <div class="how_it_works">
+        <div class="how_it_works_title">How It Works</div>
+        <div class="cards">
+          <div class="card1">
+            <div class="card_emoji">🧑‍💼</div>
+            <div class="card_title">1. Create Your Profile</div>
+            <div class="card_content">
+              <span class="title_card_content">Showcase your strengths.</span>
+              <br />Set up your freelancing profile in minutes — highlight your
+              top skills, share your work experience, and build a beautiful
+              portfolio that gets noticed. Make your first impression count
             </div>
+          </div>
+          <div class="card2">
+            <div class="card_emoji">🔎</div>
+            <div class="card_title">2. Find Projects</div>
+            <div class="card_content">
+              <span class="title_card_content"
+                >Opportunities tailored for you.</span
+              >
+              <br />Explore a curated feed of gigs and project-based work,
+              matched using smart filters and AI recommendations. Apply to jobs
+              that align with your expertise and schedule.
+            </div>
+          </div>
+          <div class="card3">
+            <div class="card_emoji">📈</div>
+            <div class="card_title">3. Grow Reputation</div>
+            <div class="card_content">
+              <span class="title_card_content"
+                >Submit work. Get recognized.</span
+              >
+              <br />Once hired, complete your tasks on time and maintain open
+              communication with clients. Get rated for your performance and
+              grow your visibility across the platform. (Payment integration
+              coming soon!)
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cta_recall">
+        <div class="cta_title">Start Your Freelancing Journey Today!</div>
+        <button class="cta_button_recall">
+          <span class="text_recall_cta_button">Get Started Now</span>
+        </button>
+      </div>
+      <footer>
+        <div class="footer_logo_container">
+          <div class="footer_logo_title">
+            <img
+              src="./footer_logo.png"
+              alt="Freelynk Logo"
+              class="footer_logo_img"
+            />
+            <div class="footer_img_title">
+              Your Talent,<br />
+              Your Platform,<br />
+              Your <span class="footer_title_color">Choice.</span>
+            </div>
+          </div>
+          <div class="footer_img_links">
+            <img src="./Mail.png" alt="email" class="img_footer" />
+            <img src="./Github.png" alt="github" class="img_footer" />
+            <img src="./Behance.png" alt="behance" class="img_footer" />
+          </div>
         </div>
         <div class="footer_linkss">
-            <div class="explore_footer">
-                <div class="explore_footer_heading">🧭 Explore</div>
-                <a href="" class="footer_link">- Home</a>
-                <a href="" class="footer_link">- About Freelynk</a>
-                <a href="" class="footer_link">- How It Works</a>
-            </div>
-            <div class="freelancers_footer">
-                <div class="freelancers_footer_heading">👨‍💻 Freelancers</div>
-                <a href="" class="footer_link">- Join as a Freelancer</a>
-                <a href="" class="footer_link">- Browse Projects</a>
-                <a href="" class="footer_link">- Sign Up</a>
-                <a href="" class="footer_link">- Login</a>
-            </div>
-            <div class="contact_us_footer">
-                <div class="contact_us_footer_heading">📬 Contact Us</div>
-                <a href="" class="footer_link">- Email</a>
-                <a href="" class="footer_link">- Feedback</a>
-                <a href="" class="footer_link">- Github</a>
-            </div>
+          <div class="explore_footer">
+            <div class="explore_footer_heading">🧭 Explore</div>
+            <a href="" class="footer_link">- Home</a>
+            <a href="" class="footer_link">- About Freelynk</a>
+            <a href="" class="footer_link">- How It Works</a>
+          </div>
+          <div class="freelancers_footer">
+            <div class="freelancers_footer_heading">👨‍💻 Freelancers</div>
+            <a href="" class="footer_link">- Join as a Freelancer</a>
+            <a href="" class="footer_link">- Browse Projects</a>
+            <a href="" class="footer_link">- Sign Up</a>
+            <a href="" class="footer_link">- Login</a>
+          </div>
+          <div class="contact_us_footer">
+            <div class="contact_us_footer_heading">📬 Contact Us</div>
+            <a href="" class="footer_link">- Email</a>
+            <a href="" class="footer_link">- Feedback</a>
+            <a href="" class="footer_link">- Github</a>
+          </div>
         </div>
-        <div class="footer_copyright">© 2025 Freelynk. <b>Built with 💙 by Students for Freelancers.</b></div>
-    </footer>
-</body>
+        <div class="footer_copyright">
+          © 2025 Freelynk. <b>Built with 💙 by Students for Freelancers.</b>
+        </div>
+      </footer>
+    </div>
+    <script src=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

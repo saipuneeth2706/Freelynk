@@ -63,6 +63,7 @@ header {
   justify-content: space-between;
   padding: 50px;
   /* background-color: red; */
+  position:fixed;
 }
 .hero_text {
   font-size: 12vh;
@@ -310,6 +311,8 @@ button {
 .cta_recall {
   height: 350px;
   width: 100%;
+  position: relative;
+  top: -20vh;
   background: linear-gradient(90deg, #141140 0%, #26b6f3 100%);
   border-radius: 30px;
   display: flex;
@@ -340,6 +343,12 @@ button {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+footer{
+  background-color: #fbedd9;
+  margin-top: -20vh;
+  height: 100%;
+  width: 100%;
 }
 .footer_logo_img {
   height: 75px;
@@ -440,10 +449,12 @@ button {
   margin-top: 30px;
 }
 .why_freelynk{
+  margin-top: 75vh;
   position:relative;
   top: -10vh;
 }
 .header_page{
+  display:none;
   height: 100vh;
   width: 100%;
   background-color: blue;

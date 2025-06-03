@@ -18,6 +18,8 @@ header {
   width: 100%;
   padding: 50px;
   /* background-color: red; */
+  position: fixed;
+  top:0px;
 }
 .header_button {
   display: flex;
@@ -64,6 +66,7 @@ header {
   padding: 50px;
   /* background-color: red; */
   position:fixed;
+  top:20%;
 }
 .hero_text {
   font-size: 12vh;
@@ -100,8 +103,18 @@ header {
   color: rgb(0, 0, 0);
   border-radius: 50px;
   font-size: 20px;
+  transition: all ease 0.3s;
+  cursor:pointer;
+}
+.main_cta:hover{
+    background-color:#141140;
+    color:white;
+    border-radius: 20px;
+    border: 2px #26b6f3 solid;
 }
 .secondary_cta {
+  cursor:pointer;
+  transition: all ease 0.3s;
   font-family: "Poppins", sans-serif;
   height: 60px;
   width: 250px;
@@ -110,6 +123,10 @@ header {
   color: white;
   border-radius: 50px;
   font-size: 20px;
+}
+.secondary_cta:hover{
+  border-radius: 20px;
+  color:#26b6f3;
 }
 button {
   border: none;
@@ -344,11 +361,12 @@ button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-footer{
+.footer{
   background-color: #fbedd9;
   margin-top: -20vh;
-  height: 100%;
   width: 100%;
+  /* border: 3px red solid; */
+  position: relative;
 }
 .footer_logo_img {
   height: 75px;
@@ -449,7 +467,7 @@ footer{
   margin-top: 30px;
 }
 .why_freelynk{
-  margin-top: 75vh;
+  margin-top: 95vh;
   position:relative;
   top: -10vh;
 }

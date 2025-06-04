@@ -20,11 +20,22 @@
 <body>
     <div class="header_page">
       <div class="top_part">
-        <img src="Freelynk-logo.png" class="top_logo">
+        <img src="header_page_logo.png" class="top_logo">
+        <button class="header_page_close">
+          <div class="line1_header_page"></div>
+          <div class="line2_header_page"></div>
+        </button>
       </div>
-      <div class="header_list"></div>
+      <div class="header_list">
+        <div class="header_home header_element" onclick="scrollToSection('home')">🏠 Home</div>
+        <div class="header_about_freelynk header_element" onclick="scrollToSection('about')">👤 About Freelynk</div>
+        <div class="header_how_it_works header_element" onclick="scrollToSection('how-it-works')">💡 How It Works</div>
+        <div class="header_browse_projects header_element">💼 Browse Projects</div>
+        <div class="header_login header_element">🔐 Login</div>
+        <div class="header_signup header_element">📝 Sign Up</div>
+      </div>
     </div>
-    <header>
+    <header id="home">
       <img src="Freelynk-logo.png" alt="LOGO HERE" class="logo" />
       <div class="header_button">
         <div class="line1"></div>
@@ -38,7 +49,7 @@
       </div>
       <img src="./hero_img_org.png" alt="hero image" class="hero_img" />
     </div>
-    <div class="why_freelynk">
+    <div class="why_freelynk" id="about">
       <div class="rectangle_cta">
         <button class="main_cta">Join as a Freelancer</button>
         <button class="secondary_cta">Hire a Freelancer</button>
@@ -134,7 +145,7 @@
         </div>
       </div>
     </div>
-    <div class="how_it_works">
+    <div class="how_it_works" id="how-it-works">
       <div class="how_it_works_title">How It Works</div>
       <div class="cards">
         <div class="card1">

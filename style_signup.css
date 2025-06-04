@@ -1,0 +1,59 @@
+.main_signup_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px black solid;
+  border-radius: 40px;
+  height: 75%;
+  width: 50%;
+  padding: 12px;
+}
+.heading_signup{
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+}
+.signup_heading {
+  font-family: "Manrope", sans-serif;
+  font-size: 50px;
+  font-weight: 900;
+  color: #1e293b;
+  text-align: left;
+}
+.signup_sub_heading {
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  color: #1e293b;
+  margin-top: 5px;
+  text-align: left;
+}
+.input_boxes {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+input {
+  font-size: 15px;
+  padding-left: 20px;
+  height: 50px;
+  font-family: "Poppins";
+  border-radius: 20px;
+  border: 1px black solid;
+  box-shadow: 0px 0px 20px lightblue;
+}
+.signup_button{
+    color: black;
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 24px;
+    border-radius: 50px;
+    height: 75px;
+    width: 200px;
+    background-color: red;
+}

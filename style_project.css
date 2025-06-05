@@ -1,0 +1,171 @@
+.projects_section{
+    height: 100%;
+    width: 95vw;
+    position: absolute;
+    /* border: 1px solid black; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    margin-top: 30px;
+}
+.projects_heading{
+    font-size: 50px;
+    font-family: "Manrope", sans-serif;
+    font-weight: 900;
+    color: #1e293b;
+    text-align: center;
+    margin-top: 20px;
+}
+.projects_sub_heading{
+    font-size: 20px;
+    font-family: "Manrope", sans-serif;
+    color: #1e293b;
+    text-align: center;
+}
+.projects_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.project_card{
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 300px;
+}
+.project_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+.project_title{
+    font-size: 20px;
+    font-family: "Manrope", sans-serif;
+    font-weight: 900;
+    color: #1e293b;
+}
+.project_description{
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    color: #1e293b;
+    text-align: center;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+.project_details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #f8fafc;
+    border-radius: 10px;
+}
+.employer_name {
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    color: #475569;
+    font-weight: 500;
+}
+.project_budget {
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    color: #0f172a;
+    font-weight: 600;
+}
+.project_timeline {
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    color: #475569;
+    font-weight: 500;
+}
+.project_button {
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    color: #1e293b;
+    text-align: center;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #e2e8f0;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 0;
+    min-width: 120px;
+}
+.project_button:hover {
+    background-color: #1e293b;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.project_button:active {
+    transform: scale(0.98);
+}
+.project_button.selected {
+    background-color: #1e293b;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.project_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 10px 0;
+}
+.tag {
+    background-color: #e2e8f0;
+    color: #1e293b;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+.project_actions {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+    padding: 10px 0;
+}
+.delete_project_card {
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    background-color: #ef4444;
+    color: white;
+    min-width: 120px;
+}
+.delete_project_card:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+}
+.delete_project_card:active {
+    transform: scale(0.98);
+}
+/* When there's only one button (either Apply or Delete) */
+.project_actions:has(.project_button:only-child),
+.project_actions:has(.delete_project_card:only-child) {
+    justify-content: center;
+}

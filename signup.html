@@ -18,6 +18,15 @@
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.4/dist/lenis.css">
 </head>
 <body>
+    <div class="loading-screen">
+        <div class="loading-content">
+            <img src="Freelynk-logo.png" alt="Freelynk Logo" class="loading-logo">
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+    <div class="cursor-circle"></div>
     <div class="header_page">
         <div class="top_part">
           <img src="header_page_logo.png" class="top_logo">
@@ -47,6 +56,21 @@
         <div class="signup_heading">Create an Account</div>
         <div class="signup_sub_heading">Join Freelynk and start your freelance journey today!</div></div>
         <div class="input_boxes">
+          <div class="role_selection">
+            <div class="role_title">Select Your Role</div>
+            <div class="role_options">
+                <div class="role_option freelancer">
+                    <div class="role_icon">👨‍💻</div>
+                    <div class="role_name">Freelancer</div>
+                    <div class="role_description">I want to find work</div>
+                </div>
+                <div class="role_option employer">
+                    <div class="role_icon">👨‍💼</div>
+                    <div class="role_name">Employer</div>
+                    <div class="role_description">I want to hire talent</div>
+                </div>
+            </div>
+        </div>
         <input type="text" name="" id="full_name" placeholder="Enter Your Full Name">
         <input type="email" id="email" placeholder="Enter Your Email Id">
         <input type="password" id="password" placeholder="Enter Your Password">
@@ -54,7 +78,9 @@
         <button class="signup_button">Sign Up</button>
         </div>
         </div>
-    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script> 
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

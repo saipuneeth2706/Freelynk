@@ -24,11 +24,29 @@ Though simplified, it provides a foundation for developing more advanced feature
 
 ## 📸 Screenshots
 
-![Screenshot 1](./screenshots/landing_page.png)  
-![Screenshot 2](./screenshots/why_freelynk.png)
-![Screenshot 3](./screenshots/how_it_works.png)
-![Screenshot 4](./screenshots/header.png)
-![Screenshot 5](./screenshots/footer.png)
+<table>
+  <tr>
+    <td>
+      <img src="./screenshots/landing_page.png" alt="Screenshot 1" width="200"/>
+    </td>
+    <td>
+      <img src="./screenshots/how_it_works.png" alt="Screenshot 2" width="200"/>
+    </td>
+    <td>
+      <img src="./screenshots/why_freelynk.png" alt="Screenshot 3" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="./screenshots/header.png" alt="Screenshot 4" width="200"/>
+    </td>
+    <td>
+      <img src="./screenshots/footer.png" alt="Screenshot 5" width="200"/>
+    </td>
+    <td></td>
+  </tr>
+</table>
+
 
 ---
 

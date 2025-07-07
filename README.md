@@ -35,7 +35,7 @@ Though simplified, it provides a foundation for developing more advanced feature
 </p>
 
 <p align="center">
-  <img src="./screenshots/footer.png" alt="Screenshot 5" width="40%" style="margin: 10px;" />
+  <img src="./screenshots/footer.png" alt="Screenshot 5" width="80%" style="margin: 10px;" />
 </p>
 
 ---

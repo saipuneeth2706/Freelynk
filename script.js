@@ -6,16 +6,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.addEventListener('click', (e) => {
     const target = e.target;
-    if (target.tagName === 'A' || 
-        (target.classList && 
-         (target.classList.contains('header_element') || 
-          target.classList.contains('project_button')))) {
+    // Only show loading screen if navigating to a different page
+    if (
+        (target.tagName === 'A' && target.getAttribute('href') && !target.getAttribute('href').startsWith('#')) ||
+        (target.classList &&
+            (target.classList.contains('project_button') ||
+             (
+                target.classList.contains('header_element') &&
+                // Not in-page navigation on index.html
+                !(
+                    (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) &&
+                    (
+                        target.classList.contains('header_home') ||
+                        target.classList.contains('header_about_freelynk') ||
+                        target.classList.contains('header_how_it_works')
+                    )
+                )
+             )
+            )
+        )
+    ) {
         const loadingScreen = document.querySelector('.loading-screen');
-        loadingScreen.classList.remove('fade-out');
-        const progress = loadingScreen.querySelector('.loading-progress');
-        progress.style.animation = 'none';
-        progress.offsetHeight;
-        progress.style.animation = 'loading 2s ease-in-out forwards';
+        if (loadingScreen) {
+            loadingScreen.classList.remove('fade-out');
+            const progress = loadingScreen.querySelector('.loading-progress');
+            progress.style.animation = 'none';
+            progress.offsetHeight;
+            progress.style.animation = 'loading 2s ease-in-out forwards';
+        }
     }
 });
 const cursorCircle = document.querySelector('.cursor-circle');
@@ -144,6 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname === '/index.html') {
         scrollToSection('home');
       } else {
+        const loadingScreen = document.querySelector('.loading-screen');
+        if (loadingScreen) loadingScreen.classList.add('fade-out');
         window.location.href = '/index.html#home';
       }
     });
@@ -155,6 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/')) {
         scrollToSection('about');
       } else {
+        const loadingScreen = document.querySelector('.loading-screen');
+        if (loadingScreen) loadingScreen.classList.add('fade-out');
         window.location.href = '/index.html#about';
       }
     });
@@ -166,6 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/')) {
         scrollToSection('how-it-works');
       } else {
+        const loadingScreen = document.querySelector('.loading-screen');
+        if (loadingScreen) loadingScreen.classList.add('fade-out');
         window.location.href = '/index.html#how-it-works';
       }
     });

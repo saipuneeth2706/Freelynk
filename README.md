@@ -25,14 +25,17 @@ Though simplified, it provides a foundation for developing more advanced feature
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="./screenshots/landing_page.png" alt="Screenshot 1" width="30%" style="margin: 10px;" />
-  <img src="./screenshots/why_freelynk.png" alt="Screenshot 2" width="30%" style="margin: 10px;" />
-  <img src="./screenshots/how_it_works.png" alt="Screenshot 3" width="30%" style="margin: 10px;" />
+  <img src="./screenshots/landing_page.png" alt="Screenshot 1" width="40%" style="margin: 10px;" />
+  <img src="./screenshots/why_freelynk.png" alt="Screenshot 2" width="40%" style="margin: 10px;" />
 </p>
 
 <p align="center">
-  <img src="./screenshots/header.png" alt="Screenshot 4" width="30%" style="margin: 10px;" />
-  <img src="./screenshots/footer.png" alt="Screenshot 5" width="30%" style="margin: 10px;" />
+  <img src="./screenshots/how_it_works.png" alt="Screenshot 3" width="40%" style="margin: 10px;" />
+  <img src="./screenshots/header.png" alt="Screenshot 4" width="40%" style="margin: 10px;" />
+</p>
+
+<p align="center">
+  <img src="./screenshots/footer.png" alt="Screenshot 5" width="40%" style="margin: 10px;" />
 </p>
 
 ---

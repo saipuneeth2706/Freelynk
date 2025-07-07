@@ -112,19 +112,23 @@ You can preview the design mockups here:
 ## 📁 Project Structure
 
 ```
-/index.html
-/css/
-/js/
 /assets/
+/css/
+/pages/
 /screenshots/
 /README.md
+/index.html
+/script.js
+/style.css
 ```
 
-- `index.html` — Main entry point  
-- `/css/` — Stylesheets  
-- `/js/` — JavaScript logic  
+- `index.html` — Main entry point
+- `style.css` — Global styling
+- `script.js` — Javascript logic
+- `/css/` — Stylesheets for individual pages
 - `/assets/` — Images and icons  
 - `/screenshots/` — Project screenshots
+- `/pages/` — Individual html pages
 
 ---
 

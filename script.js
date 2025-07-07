@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const browseProjectsButton = document.querySelector('.header_browse_projects');
   if (browseProjectsButton) {
     browseProjectsButton.addEventListener('click', () => {
-      window.location.href = 'projects.html';
+      window.location.href = 'pages/projects.html';
       headerPage.classList.remove('active');
     });
   }
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginButton = document.querySelector('.header_login');
   if (loginButton) {
     loginButton.addEventListener('click', () => {
-      window.location.href = 'login.html';
+      window.location.href = 'pages/login.html';
       headerPage.classList.remove('active');
     });
   }
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const signupButton = document.querySelector('.header_signup');
   if (signupButton) {
     signupButton.addEventListener('click', () => {
-      window.location.href = 'signup.html';
+      window.location.href = 'pages/signup.html';
       headerPage.classList.remove('active');
     });
   }
@@ -248,9 +248,9 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('currentUser', JSON.stringify(userData));
 
             if (selectedRole === 'freelancer') {
-                window.location.href = 'projects.html';
+                window.location.href = 'pages/projects.html';
             } else {
-                window.location.href = 'upload.html';
+                window.location.href = 'pages/upload.html';
             }
         });
     }
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (browseProjectsElement) {
                 browseProjectsElement.textContent = '📝 Post Project';
                 browseProjectsElement.addEventListener('click', () => {
-                    window.location.href = 'upload.html';
+                    window.location.href = 'pages/upload.html';
                 });
             }
         }
@@ -297,7 +297,7 @@ function checkAuth(action) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (!currentUser || !currentUser.isLoggedIn) {
         alert('Please sign up to ' + action);
-        window.location.href = 'signup.html';
+        window.location.href = 'pages/signup.html';
         return false;
     }
     return true;
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (currentUser.role !== 'employer') {
                 alert('Only employers can upload projects. Please sign up as an employer.');
-                window.location.href = 'signup.html';
+                window.location.href = 'pages/signup.html';
                 return;
             }
 
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             clearProjectForm();
             
-            window.location.href = 'projects.html';
+            window.location.href = 'pages/projects.html';
         });
     }
     

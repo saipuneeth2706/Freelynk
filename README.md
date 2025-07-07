@@ -39,7 +39,7 @@ Below are two options:
 ### 🟢 1. Clone the Repository
 
 ```
-git clone https://github.com/yourusername/freelancing-platform.git
+git clone https://github.com/saipuneeth2706/freelancing-platform.git
 ```
 
 Then navigate into the project folder:

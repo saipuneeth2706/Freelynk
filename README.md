@@ -4,6 +4,12 @@ A simple freelancing web application developed as a mini project to connect free
 
 ---
 
+## 🌐 Live Demo
+
+✅ [View the Live Site](https://freelynk.onrender.com)
+
+---
+
 ## 🚀 Project Overview
 
 In today’s growing gig economy, there’s a significant need for platforms that connect skilled freelancers with employers seeking flexible, short-term talent. This project simulates a basic freelancing portal where:
@@ -13,12 +19,6 @@ In today’s growing gig economy, there’s a significant need for platforms tha
 - **Freelancers can submit applications**
 
 Though simplified, it provides a foundation for developing more advanced features in the future.
-
----
-
-## 🌐 Live Demo
-
-✅ [View the Live Site](https://freelynk.onrender.com)
 
 ---
 

@@ -31,6 +31,47 @@ Though simplified, it provides a foundation for developing more advanced feature
 
 ---
 
+## ⚙️ Installation & Local Setup
+
+You can run this project locally without any build tools.  
+Below are two options:
+
+### 🟢 1. Clone the Repository
+
+```
+git clone https://github.com/yourusername/freelancing-platform.git
+```
+
+Then navigate into the project folder:
+
+```
+cd freelancing-platform
+```
+
+### 🟢 2. Run with Python HTTP Server
+
+Make sure you have **Python installed** (Python 3 recommended).
+
+#### For Python 3.x:
+
+```
+python -m http.server 8000
+```
+
+#### For Python 2.x:
+
+```
+python -m SimpleHTTPServer 8000
+```
+
+Then, open your browser and go to:
+
+```
+http://localhost:8000
+```
+
+---
+
 ## 🎨 Figma Design
 
 You can preview the design mockups here:
@@ -76,47 +117,6 @@ You can preview the design mockups here:
 - `/js/` — JavaScript logic  
 - `/assets/` — Images and icons  
 - `/screenshots/` — Project screenshots
-
----
-
-## ⚙️ Installation & Local Setup
-
-You can run this project locally without any build tools.  
-Below are two options:
-
-### 🟢 1. Clone the Repository
-
-```
-git clone https://github.com/yourusername/freelancing-platform.git
-```
-
-Then navigate into the project folder:
-
-```
-cd freelancing-platform
-```
-
-### 🟢 2. Run with Python HTTP Server
-
-Make sure you have **Python installed** (Python 3 recommended).
-
-#### For Python 3.x:
-
-```
-python -m http.server 8000
-```
-
-#### For Python 2.x:
-
-```
-python -m SimpleHTTPServer 8000
-```
-
-Then, open your browser and go to:
-
-```
-http://localhost:8000
-```
 
 ---
 

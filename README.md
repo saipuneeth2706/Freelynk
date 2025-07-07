@@ -24,10 +24,11 @@ Though simplified, it provides a foundation for developing more advanced feature
 
 ## 📸 Screenshots
 
-*(Add screenshots of your project below)*
-
-![Screenshot 1](./screenshots/screenshot1.png)  
-![Screenshot 2](./screenshots/screenshot2.png)
+![Screenshot 1](./screenshots/landing_page.png)  
+![Screenshot 2](./screenshots/why_freelynk.png)
+![Screenshot 3](./screenshots/how_it_works.png)
+![Screenshot 4](./screenshots/header.png)
+![Screenshot 5](./screenshots/footer.png)
 
 ---
 

@@ -110,17 +110,8 @@ if (topLogo) {
   topLogo.addEventListener('mouseout', () => {
     topLogo.style.transform = 'scale(1)';
   });
-}
-
-if (logo) {
-  logo.addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
-}
-
-if (topLogo) {
   topLogo.addEventListener('click', () => {
-    window.location.href = 'index.html';
+    window.location.href = '/index.html';
   });
 }
 
@@ -150,10 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const homeButton = document.querySelector('.header_home');
   if (homeButton) {
     homeButton.addEventListener('click', () => {
-      if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/')) {
+      if (window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname === '/index.html') {
         scrollToSection('home');
       } else {
-        window.location.href = 'index.html#home';
+        window.location.href = '/index.html#home';
       }
     });
   }
@@ -164,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/')) {
         scrollToSection('about');
       } else {
-        window.location.href = 'index.html#about';
+        window.location.href = '/index.html#about';
       }
     });
   }
@@ -175,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.location.pathname.includes('index.html') || window.location.pathname.endsWith('/')) {
         scrollToSection('how-it-works');
       } else {
-        window.location.href = 'index.html#how-it-works';
+        window.location.href = '/index.html#how-it-works';
       }
     });
   }
@@ -183,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const browseProjectsButton = document.querySelector('.header_browse_projects');
   if (browseProjectsButton) {
     browseProjectsButton.addEventListener('click', () => {
-      window.location.href = 'pages/projects.html';
+      window.location.href = '/pages/projects.html';
       headerPage.classList.remove('active');
     });
   }
@@ -191,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginButton = document.querySelector('.header_login');
   if (loginButton) {
     loginButton.addEventListener('click', () => {
-      window.location.href = 'pages/login.html';
+      window.location.href = '/pages/login.html';
       headerPage.classList.remove('active');
     });
   }
@@ -199,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const signupButton = document.querySelector('.header_signup');
   if (signupButton) {
     signupButton.addEventListener('click', () => {
-      window.location.href = 'pages/signup.html';
+      window.location.href = '/pages/signup.html';
       headerPage.classList.remove('active');
     });
   }
@@ -248,9 +239,9 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('currentUser', JSON.stringify(userData));
 
             if (selectedRole === 'freelancer') {
-                window.location.href = 'pages/projects.html';
+                window.location.href = '/pages/projects.html';
             } else {
-                window.location.href = 'pages/upload.html';
+                window.location.href = '/pages/upload.html';
             }
         });
     }
@@ -266,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.textContent = '🚪 Logout';
                 element.addEventListener('click', () => {
                     localStorage.removeItem('currentUser');
-                    window.location.href = 'index.html';
+                    window.location.href = '/index.html';
                 });
             }
         });
@@ -276,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (browseProjectsElement) {
                 browseProjectsElement.textContent = '📝 Post Project';
                 browseProjectsElement.addEventListener('click', () => {
-                    window.location.href = 'pages/upload.html';
+                    window.location.href = '/pages/upload.html';
                 });
             }
         }
@@ -297,7 +288,7 @@ function checkAuth(action) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (!currentUser || !currentUser.isLoggedIn) {
         alert('Please sign up to ' + action);
-        window.location.href = 'pages/signup.html';
+        window.location.href = '/pages/signup.html';
         return false;
     }
     return true;
@@ -314,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (currentUser.role !== 'employer') {
                 alert('Only employers can upload projects. Please sign up as an employer.');
-                window.location.href = 'pages/signup.html';
+                window.location.href = '/pages/signup.html';
                 return;
             }
 
@@ -342,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             clearProjectForm();
             
-            window.location.href = 'pages/projects.html';
+            window.location.href = '/pages/projects.html';
         });
     }
     

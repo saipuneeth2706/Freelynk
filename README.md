@@ -76,8 +76,7 @@ http://localhost:8000
 
 You can preview the design mockups here:
 
-[View Figma Design](#)  
-*(Replace `#` with your actual Figma link)*
+[View Figma Design](https://www.figma.com/design/vU5CsUEJI7YJj6spd4ihL4/Freelynk?node-id=143-3&t=eQmJpV7lIaY9rbNl-4)
 
 ---
 

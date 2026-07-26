@@ -169,7 +169,7 @@ const CardNav: React.FC<CardNavProps> = ({
     >
       <nav
         ref={navRef}
-        className={`card-nav ${isExpanded ? "open" : ""} block h-[60px] p-0 rounded-xl shadow-md relative overflow-hidden will-change-[height]`}
+        className={`card-nav ${isExpanded ? "open" : ""} block h-[60px] p-0 rounded-xl shadow-md relative overflow-hidden will-change-[height] border border-white/30`}
         style={{ backgroundColor: baseColor }}
       >
         <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[2]">
@@ -203,7 +203,12 @@ const CardNav: React.FC<CardNavProps> = ({
           <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
             <img src={logo} alt={logoAlt} className="logo h-[28px]" />
             {logoText && (
-              <span className="ml-2 font-semibold text-[18px]" style={{ color: menuColor || "#000" }}>{logoText}</span>
+              <span
+                className="ml-2 font-semibold text-[18px]"
+                style={{ color: menuColor || "#000" }}
+              >
+                {logoText}
+              </span>
             )}
           </div>
 

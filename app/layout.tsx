@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import { Google_Sans_Flex } from "next/font/google";
 import { LenisProvider } from "@/contexts/LenisContext";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 // import { cn } from "@/lib/utils";
 
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="en" className={`${googlesansflex.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <LenisProvider>{children}</LenisProvider>
+        <Analytics />
       </body>
     </html>
   );

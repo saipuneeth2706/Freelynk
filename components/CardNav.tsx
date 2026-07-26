@@ -46,6 +46,7 @@ const CardNav: React.FC<CardNavProps> = ({
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -86,18 +87,35 @@ const CardNav: React.FC<CardNavProps> = ({
 
   const createTimeline = () => {
     const navEl = navRef.current;
+    const overlayEl = overlayRef.current;
     if (!navEl) return null;
 
     gsap.set(navEl, { height: 60, overflow: "hidden" });
     gsap.set(cardsRef.current, { y: 50, opacity: 0 });
+    if (overlayEl) {
+      gsap.set(overlayEl, { opacity: 0, pointerEvents: "none" });
+    }
 
     const tl = gsap.timeline({ paused: true });
 
-    tl.to(navEl, {
-      height: calculateHeight,
-      duration: 0.4,
-      ease,
-    });
+    if (overlayEl) {
+      tl.to(overlayEl, {
+        opacity: 1,
+        pointerEvents: "auto",
+        duration: 0.4,
+        ease,
+      });
+    }
+
+    tl.to(
+      navEl,
+      {
+        height: calculateHeight,
+        duration: 0.4,
+        ease,
+      },
+      overlayEl ? "-=0.4" : 0,
+    );
 
     tl.to(
       cardsRef.current,
@@ -164,14 +182,20 @@ const CardNav: React.FC<CardNavProps> = ({
   };
 
   return (
-    <div
-      className={`card-nav-container absolute left-1/2 -translate-x-1/2 w-[90%] max-w-[800px] z-[99] top-[1.2em] md:top-[2em] ${className}`}
-    >
-      <nav
-        ref={navRef}
-        className={`card-nav ${isExpanded ? "open" : ""} block h-[60px] p-0 rounded-xl shadow-md relative overflow-hidden will-change-[height] border border-white/30`}
-        style={{ backgroundColor: baseColor }}
+    <>
+      <div
+        ref={overlayRef}
+        className="fixed inset-0 z-[98] bg-black/40 backdrop-blur-[2px] pointer-events-none"
+        onClick={toggleMenu}
+      />
+      <div
+        className={`card-nav-container absolute left-1/2 -translate-x-1/2 w-[90%] max-w-[800px] z-[99] top-[1.2em] md:top-[2em] ${className}`}
       >
+        <nav
+          ref={navRef}
+          className={`card-nav ${isExpanded ? "open" : ""} block h-[60px] p-0 rounded-xl shadow-md relative overflow-hidden will-change-[height] border border-white/30`}
+          style={{ backgroundColor: baseColor }}
+        >
         <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[2]">
           <div
             className={`hamburger-menu ${isHamburgerOpen ? "open" : ""} group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none`}
@@ -260,6 +284,7 @@ const CardNav: React.FC<CardNavProps> = ({
         </div>
       </nav>
     </div>
+    </>
   );
 };
 

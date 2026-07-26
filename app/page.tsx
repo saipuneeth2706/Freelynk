@@ -5,8 +5,22 @@ import CardNav from "@/components/CardNav";
 import TextBlockEffect, { TextBlock } from "@/ui/components/TextBlockEffect";
 import SpecularButton from "@/components/SpecularButton";
 import { Badge } from "@/components/ui/badge";
+import { createClient } from "@/lib/supabase/client";
 
 export default function Home() {
+  const handleGoogleSignIn = async () => {
+    const supabase = createClient();
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+        // queryParams: {
+        //   prompt: "select_account",
+        // },
+      },
+    });
+  };
+
   const items = [
     {
       label: "About",
@@ -137,7 +151,7 @@ export default function Home() {
             followMouse
             proximity={250}
             autoAnimate={false}
-            onClick={() => console.log("clicked")}
+            onClick={handleGoogleSignIn}
           >
             Continue with Google
           </SpecularButton>

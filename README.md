@@ -1,171 +1,36 @@
-# Freelancing Platform
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A simple freelancing web application developed as a mini project to connect freelancers and employers for project-based work. The platform demonstrates the core workflow of freelance marketplaces like Upwork, focusing on clean UI, interactivity, and smooth user experience.
+## Getting Started
 
----
+First, run the development server:
 
-## 🌐 Live Demo
-
-✅ [View the Live Site](https://freelynk.onrender.com)
-
----
-
-## 🚀 Project Overview
-
-In today’s growing gig economy, there’s a significant need for platforms that connect skilled freelancers with employers seeking flexible, short-term talent. This project simulates a basic freelancing portal where:
-
-- **Employers can post projects**
-- **Freelancers can browse available jobs**
-- **Freelancers can submit applications**
-
-Though simplified, it provides a foundation for developing more advanced features in the future.
-
----
-
-## 📸 Screenshots
-
-<p align="center">
-  <img src="./screenshots/landing_page.png" alt="Screenshot 1" width="40%" style="margin: 10px;" />
-  <img src="./screenshots/why_freelynk.png" alt="Screenshot 2" width="40%" style="margin: 10px;" />
-</p>
-
-<p align="center">
-  <img src="./screenshots/how_it_works.png" alt="Screenshot 3" width="40%" style="margin: 10px;" />
-  <img src="./screenshots/header.png" alt="Screenshot 4" width="40%" style="margin: 10px;" />
-</p>
-
-<p align="center">
-  <img src="./screenshots/footer.png" alt="Screenshot 5" width="80%" style="margin: 10px;" />
-</p>
-
----
-
-## ⚙️ Installation & Local Setup
-
-You can run this project locally without any build tools.  
-Below are two options:
-
-### 🟢 1. Clone the Repository
-
-```
-git clone https://github.com/saipuneeth2706/freelancing-platform.git
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Then navigate into the project folder:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```
-cd freelancing-platform
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### 🟢 2. Run with Python HTTP Server
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Make sure you have **Python installed** (Python 3 recommended).
+## Learn More
 
-#### For Python 3.x:
+To learn more about Next.js, take a look at the following resources:
 
-```
-python -m http.server 8000
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-#### For Python 2.x:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-```
-python -m SimpleHTTPServer 8000
-```
+## Deploy on Vercel
 
-Then, open your browser and go to:
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-```
-http://localhost:8000
-```
-
----
-
-## 🎨 Figma Design
-
-You can preview the design mockups here:
-
-[View Figma Design](https://www.figma.com/design/vU5CsUEJI7YJj6spd4ihL4/Freelynk?node-id=143-3&t=eQmJpV7lIaY9rbNl-4)
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend:** HTML, CSS, Vanilla JavaScript
-- **Animations:** GSAP (GreenSock Animation Platform)
-- **Smooth Scrolling:** Lenis
-- **Hosting:** Render
-
----
-
-## ✨ Features
-
-✅ Employers can upload new project listings  
-✅ Freelancers can browse job opportunities  
-✅ Freelancers can submit applications via interactive forms  
-✅ Smooth scrolling and engaging animations  
-✅ Responsive design for all devices  
-✅ Clean, modular code structure  
-
----
-
-## 📁 Project Structure
-
-```
-/assets/
-/css/
-/pages/
-/screenshots/
-/README.md
-/index.html
-/script.js
-/style.css
-```
-
-- `index.html` — Main entry point
-- `style.css` — Global styling
-- `script.js` — Javascript logic
-- `/css/` — Stylesheets for individual pages
-- `/assets/` — Images and icons  
-- `/screenshots/` — Project screenshots
-- `/pages/` — Individual html pages
-
----
-
-## 🔐 Security & Limitations
-
-- Data is handled client-side only; no persistent database or authentication is implemented.
-- No payment processing or sensitive data storage.
-- Libraries are loaded via CDN.
-
-Future plans include:
-- Backend integration
-- Secure user accounts
-- Escrow payments
-- Multilingual support
-
----
-
-## 📚 References
-
-- [MDN Web Docs](https://developer.mozilla.org/)
-- [GSAP Documentation](https://gsap.com/docs/)
-- [Lenis Documentation](https://lenis.studiofreight.com/)
-- [W3Schools](https://www.w3schools.com/)
-- [Render Hosting](https://render.com/)
-- [Git](https://git-scm.com/)
-- [GitHub](https://github.com/)
-- [Stack Overflow](https://stackoverflow.com/)
-
----
-
-## 🤝 Contributions
-
-This project was created for educational purposes as part of a college mini project.  
-Feel free to fork the repository, explore, and suggest improvements.
-
----
-
-## 📄 License
-
-This project is licensed for educational and demonstration use only.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

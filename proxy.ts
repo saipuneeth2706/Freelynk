@@ -25,18 +25,20 @@ export async function proxy(request: NextRequest) {
     }
   );
 
-  // IMPORTANT: Do NOT use supabase.auth.getSession() in server code.
-  // Use getClaims() to validate the JWT signature every time.
-  await supabase.auth.getClaims();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  // Optional: redirect unauthenticated users to /login
-  // Uncomment the block below if you want to protect all matched routes.
-  //
-  // if (!claims) {
-  //   const url = request.nextUrl.clone();
-  //   url.pathname = "/login";
-  //   return NextResponse.redirect(url);
-  // }
+  const protectedRoutes = ["/role-select"];
+  const isProtected = protectedRoutes.some((route) =>
+    request.nextUrl.pathname.startsWith(route)
+  );
+
+  if (isProtected && !user) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    return NextResponse.redirect(url);
+  }
 
   // Apply cache-prevention headers to avoid CDN session leaks
   supabaseResponse.headers.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");

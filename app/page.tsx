@@ -4,6 +4,7 @@ import Lightfall from "@/components/Lightfall";
 import CardNav from "@/components/CardNav";
 import TextBlockEffect, { TextBlock } from "@/ui/components/TextBlockEffect";
 import SpecularButton from "@/components/SpecularButton";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   const items = [
@@ -100,6 +101,14 @@ export default function Home() {
 
       <TextBlockEffect className="absolute inset-0 z-10 bg-transparent flex items-center justify-center">
         <section className="flex h-full w-full flex-col items-center justify-center gap-8 px-8">
+          <div className="flex w-full flex-wrap justify-center">
+            <Badge className="bg-white text-black text-lg h-8 px-4 ">
+              New
+              <Badge className="bg-black text-white h-7 px-4 translate-x-[13px]">
+                Just shipped v2.0
+              </Badge>
+            </Badge>
+          </div>
           <TextBlock
             blockColor="#000"
             textColor="#ededed"

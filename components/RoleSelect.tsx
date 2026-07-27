@@ -122,7 +122,9 @@ export default function RoleSelect() {
 
         if (existing) {
           window.location.href =
-            existing.role === "freelancer" ? "/dashboard" : "/employer";
+            existing.role === "freelancer"
+              ? "/dashboard"
+              : "/employer_boarding";
           return;
         }
       }
@@ -200,13 +202,18 @@ export default function RoleSelect() {
       .insert(insertPayload);
 
     if (insertError) {
-      console.error("Insert error:", insertError.message, insertError.details, insertError.hint);
+      console.error(
+        "Insert error:",
+        insertError.message,
+        insertError.details,
+        insertError.hint,
+      );
       setLoading(false);
       setSelected(null);
       return;
     }
     window.location.href =
-      roleId === "freelancer" ? "/dashboard" : "/employer";
+      roleId === "freelancer" ? "/dashboard" : "/employer_boarding";
   };
 
   return (
@@ -254,7 +261,11 @@ export default function RoleSelect() {
               <h1
                 ref={headingRef}
                 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
-                style={{ textWrap: "balance", opacity: 0, transform: "translateY(20px)" }}
+                style={{
+                  textWrap: "balance",
+                  opacity: 0,
+                  transform: "translateY(20px)",
+                }}
               >
                 Welcome to FreeLynk
               </h1>
@@ -283,7 +294,10 @@ export default function RoleSelect() {
                     ref={(el) => {
                       cardRefs.current[i] = el;
                     }}
-                    style={{ opacity: 0, transform: "translateY(30px) scale(0.96)" }}
+                    style={{
+                      opacity: 0,
+                      transform: "translateY(30px) scale(0.96)",
+                    }}
                     className={`transition-all duration-300 ${
                       isDisabled ? "opacity-40" : ""
                     } ${isActive ? "scale-[1.02]" : ""}`}
@@ -389,7 +403,11 @@ export default function RoleSelect() {
               })}
             </div>
 
-            <p ref={hintRef} className="text-center text-xs text-neutral-600" style={{ opacity: 0 }}>
+            <p
+              ref={hintRef}
+              className="text-center text-xs text-neutral-600"
+              style={{ opacity: 0 }}
+            >
               You can change this later in your profile settings.
             </p>
           </>

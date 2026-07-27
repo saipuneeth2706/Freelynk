@@ -14,24 +14,24 @@ export async function proxy(request: NextRequest) {
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
+            request.cookies.set(name, value),
           );
           supabaseResponse = NextResponse.next({ request });
           cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
+            supabaseResponse.cookies.set(name, value, options),
           );
         },
       },
-    }
+    },
   );
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const protectedRoutes = ["/role-select"];
+  const protectedRoutes = ["/role-select", "/dashboard", "/employer_boarding"];
   const isProtected = protectedRoutes.some((route) =>
-    request.nextUrl.pathname.startsWith(route)
+    request.nextUrl.pathname.startsWith(route),
   );
 
   if (isProtected && !user) {
@@ -41,7 +41,10 @@ export async function proxy(request: NextRequest) {
   }
 
   // Apply cache-prevention headers to avoid CDN session leaks
-  supabaseResponse.headers.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+  supabaseResponse.headers.set(
+    "Cache-Control",
+    "no-store, no-cache, must-revalidate, proxy-revalidate",
+  );
   supabaseResponse.headers.set("Pragma", "no-cache");
   supabaseResponse.headers.set("Expires", "0");
   supabaseResponse.headers.set("Surrogate-Control", "no-store");

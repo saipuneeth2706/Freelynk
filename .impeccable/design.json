@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-27T00:00:00Z",
+  "title": "Design System: FreeLynk",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Electric Blue",
+        "canonical": "oklch(55% 0.24 264)",
+        "tonalRamp": [
+          "oklch(15% 0.24 264)",
+          "oklch(25% 0.24 264)",
+          "oklch(35% 0.24 264)",
+          "oklch(45% 0.24 264)",
+          "oklch(55% 0.24 264)",
+          "oklch(65% 0.20 264)",
+          "oklch(75% 0.15 264)",
+          "oklch(85% 0.10 264)"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Violet",
+        "canonical": "oklch(50% 0.22 290)",
+        "tonalRamp": [
+          "oklch(15% 0.22 290)",
+          "oklch(25% 0.22 290)",
+          "oklch(35% 0.22 290)",
+          "oklch(45% 0.22 290)",
+          "oklch(50% 0.22 290)",
+          "oklch(60% 0.18 290)",
+          "oklch(70% 0.14 290)",
+          "oklch(80% 0.10 290)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Void",
+        "canonical": "oklch(14.5% 0 0)",
+        "tonalRamp": [
+          "oklch(10% 0 0)",
+          "oklch(14.5% 0 0)",
+          "oklch(18% 0 0)",
+          "oklch(22% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(34% 0 0)",
+          "oklch(44% 0 0)",
+          "oklch(55% 0 0)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Snow",
+        "canonical": "oklch(97% 0 0)",
+        "tonalRamp": [
+          "oklch(55% 0 0)",
+          "oklch(65% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(88% 0 0)",
+          "oklch(92% 0 0)",
+          "oklch(95% 0 0)",
+          "oklch(97% 0 0)"
+        ]
+      },
+      "destructive": {
+        "role": "destructive",
+        "displayName": "Alert Red",
+        "canonical": "oklch(65% 0.20 25)",
+        "tonalRamp": [
+          "oklch(25% 0.20 25)",
+          "oklch(35% 0.20 25)",
+          "oklch(45% 0.20 25)",
+          "oklch(55% 0.20 25)",
+          "oklch(65% 0.20 25)",
+          "oklch(72% 0.16 25)",
+          "oklch(80% 0.12 25)",
+          "oklch(88% 0.08 25)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines on landing pages. The largest text on screen, used sparingly."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings, page titles. Clear hierarchy below display."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, modal headings, component labels."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions, paragraphs, UI text. Max line length 65–75ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, navigation, form labels, metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glow-halo",
+        "value": "0 0 0 1px hsl(264 80% 80% / 100%), 0 0 1px 0 hsl(264 80% 80% / 60%), 0 0 3px 0 hsl(264 80% 80% / 50%), 0 0 6px 0 hsl(264 80% 80% / 40%), 0 0 15px 0 hsl(264 80% 80% / 30%), 0 0 25px 2px hsl(264 80% 80% / 20%), 0 0 50px 2px hsl(264 80% 80% / 10%)",
+        "purpose": "Animated glow around BorderGlow cards. Used on role selection cards and interactive surfaces."
+      },
+      {
+        "name": "specular-button",
+        "value": "inset 0 1px 0 rgba(255,255,255,0.04), 0 8px 24px rgba(0,0,0,0.25)",
+        "purpose": "SpecularButton ambient shadow. Subtle top-edge highlight plus diffuse drop."
+      },
+      {
+        "name": "card-ambient",
+        "value": "rgba(0,0,0,0.1) 0 1px 2px, rgba(0,0,0,0.1) 0 2px 4px, rgba(0,0,0,0.1) 0 4px 8px, rgba(0,0,0,0.1) 0 8px 16px, rgba(0,0,0,0.1) 0 16px 32px, rgba(0,0,0,0.1) 0 32px 64px",
+        "purpose": "Fallback ambient shadow on BorderGlow when glow is inactive."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.33, 1, 0.68, 1)",
+        "purpose": "Default ease-out for state transitions. Derived from GSAP power3.out."
+      },
+      {
+        "name": "ease-dramatic",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Exponential ease-out for entrance animations. GSAP power3.out equivalent."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Button presses, micro-interactions, focus transitions."
+      },
+      {
+        "name": "duration-standard",
+        "value": "250ms",
+        "purpose": "Card hover states, border glow reveal, general transitions."
+      },
+      {
+        "name": "duration-slow",
+        "value": "500ms",
+        "purpose": "Entrance animations, page transitions, scroll-driven reveals."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "SpecularButton",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "WebGL-powered CTA with real-time specular highlight shader. The hero interactive element.",
+      "html": "<button class=\"ds-btn-primary\">Continue with Google</button>",
+      "css": ".ds-btn-primary { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 14px 30px; border: none; border-radius: 18px; background: color-mix(in srgb, #ffffff 20%, transparent); backdrop-filter: blur(1px); color: #f5f5f5; font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.01em; cursor: pointer; outline: none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 8px 24px rgba(0,0,0,0.25); transition: transform 150ms ease-out; } .ds-btn-primary:hover { transform: scale(1.02); } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2px solid #0A29FF; outline-offset: 3px; } .ds-btn-primary:disabled { opacity: 0.55; cursor: default; transform: none; }"
+    },
+    {
+      "name": "BorderGlowCard",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Animated glow-border card. Mesh gradient border reveals on hover or auto-sweep.",
+      "html": "<div class=\"ds-card\"><h3>Freelancer</h3><p>Find work, showcase skills, and get paid for projects you love.</p></div>",
+      "css": ".ds-card { background: #120F17; border-radius: 20px; padding: 28px; position: relative; box-shadow: rgba(0,0,0,0.1) 0 1px 2px, rgba(0,0,0,0.1) 0 2px 4px, rgba(0,0,0,0.1) 0 4px 8px, rgba(0,0,0,0.1) 0 8px 16px; color: #fafafa; font-family: 'Google Sans Flex', sans-serif; } .ds-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; } .ds-card p { font-size: 0.875rem; color: #a3a3a3; line-height: 1.6; }"
+    },
+    {
+      "name": "Primary Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Semi-transparent input with subtle border. Dark-on-dark with frosted background.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Search projects...\" />",
+      "css": ".ds-input { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 12px 16px; color: #fafafa; font-family: 'Google Sans Flex', sans-serif; font-size: 0.875rem; outline: none; transition: border-color 200ms ease-out, box-shadow 200ms ease-out; } .ds-input::placeholder { color: #808080; } .ds-input:focus { border-color: rgba(255,255,255,0.25); box-shadow: 0 0 0 2px rgba(10,41,255,0.2); } .ds-input:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "refersTo": "button-secondary",
+      "description": "Compact badge for status, tags, and announcements. White on dark or dark on white.",
+      "html": "<span class=\"ds-badge\">New</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; font-family: 'Google Sans Flex', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.02em; background: #fff; color: #141414; }"
+    },
+    {
+      "name": "CardNav Item",
+      "kind": "nav",
+      "refersTo": "button-secondary",
+      "description": "Expanding navigation card from the landing page. GSAP-animated reveal on hamburger click.",
+      "html": "<div class=\"ds-nav-item\"><span class=\"ds-nav-label\">About</span></div>",
+      "css": ".ds-nav-item { background: #1B1722; border-radius: 16px; padding: 20px 24px; color: #fff; font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background 200ms ease-out; } .ds-nav-item:hover { background: #2F293A; } .ds-nav-label { display: block; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Engine",
+    "overview": "High-tech precision with calm, intentional restraint. Every glow, shader, and transition feels hand-placed, not generated. The system communicates capability through darkness and light — surfaces recede into near-black, and color appears only where it matters: interactive states, brand accents, and the animated glow effects that make the interface feel alive.\n\nThis is a product UI that borrows the confidence of premium dark-mode tools but adds a layer of craft through WebGL shader backgrounds, specular-highlight buttons, and animated border glow. The aesthetic rejects the AI-default cream-and-glass look entirely — depth comes from light itself, not from frosted panels or gradient overlays.",
+    "keyCharacteristics": [
+      "Near-black canvas with electric blue as the sole primary accent",
+      "WebGL-powered interactive elements (shaders, specular highlights, glow borders)",
+      "Generous spacing and confident typography at a fixed rem scale",
+      "Light-based depth: glow, luminance, and border animation instead of drop shadows",
+      "Calm motion: 150–300ms transitions, no bounce, no orchestration"
+    ],
+    "rules": [
+      {
+        "name": "The 10% Rule",
+        "body": "The primary accent (Electric Blue) appears on ≤10% of any given screen. Its rarity is what makes it powerful.",
+        "section": "colors"
+      },
+      {
+        "name": "The Role Color Rule",
+        "body": "Freelancer = blue family (#0A29FF, #38bdf8, #6366f1). Employer = violet family (#7B3FE4, #c084fc, #a855f7). These palettes are never mixed on the same surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fixed Scale Rule",
+        "body": "Type sizes are fixed rem values, not fluid clamp for everything. Only the display hero uses clamp for viewport responsiveness.",
+        "section": "typography"
+      },
+      {
+        "name": "The Single Family Rule",
+        "body": "One typeface carries the entire hierarchy. Weight and size create all the contrast needed.",
+        "section": "typography"
+      },
+      {
+        "name": "The Light-Source Rule",
+        "body": "Every luminous effect (glow, specular, highlight) has a consistent light direction — typically top-left or cursor-following. Light never comes from multiple directions on the same element.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use the primary Electric Blue (#0A29FF) sparingly — it should appear on ≤10% of any screen.",
+      "Do use BorderGlow on interactive cards and surfaces to create light-based depth instead of drop shadows.",
+      "Do keep the near-black canvas (#141414) as the dominant background. The darkness IS the design.",
+      "Do use fixed rem sizes for product UI type, with clamp only for the hero display heading.",
+      "Do match the role color families: blue for freelancer, violet for employer.",
+      "Do use GSAP for entrance animations and Lenis for smooth scrolling.",
+      "Do maintain 150–300ms transition durations for state changes."
+    ],
+    "donts": [
+      "Don't use cream, sand, beige, or warm-tinted backgrounds. The AI-generated slop aesthetic is explicitly banned.",
+      "Don't use gradient text (background-clip: text). Emphasis comes from weight and size.",
+      "Don't use glassmorphism as a default. Depth comes from light-based glow, not glass.",
+      "Don't use identical card grids with icon + heading + text.",
+      "Don't use tiny uppercase tracked eyebrows above every section.",
+      "Don't use side-stripe borders (border-left > 1px as accent).",
+      "Don't use numbered section markers (01 / 02 / 03) as default scaffolding.",
+      "Don't use bounce, elastic, or spring easing.",
+      "Don't ship components without hover, focus, active, disabled, and loading states.",
+      "Don't use display fonts in UI labels, buttons, or data.",
+      "Don't reinvent standard affordances for flavor."
+    ]
+  }
+}

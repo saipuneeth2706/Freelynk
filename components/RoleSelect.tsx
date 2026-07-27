@@ -100,6 +100,7 @@ export default function RoleSelect() {
   const [selected, setSelected] = useState<string | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
+  const [checking, setChecking] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subtextRef = useRef<HTMLParagraphElement>(null);
@@ -108,9 +109,30 @@ export default function RoleSelect() {
 
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(({ data }) => {
+
+    supabase.auth.getUser().then(async ({ data }) => {
       setUser(data.user);
+
+      if (data.user) {
+        const { data: existing } = await supabase
+          .from("user_table")
+          .select("role")
+          .eq("user_id", data.user.id)
+          .single();
+
+        if (existing) {
+          window.location.href =
+            existing.role === "freelancer" ? "/dashboard" : "/employer";
+          return;
+        }
+      }
+
+      setChecking(false);
     });
+  }, []);
+
+  useEffect(() => {
+    if (checking) return;
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
@@ -143,7 +165,7 @@ export default function RoleSelect() {
         { opacity: 1, duration: 0.5 },
         "-=0.2",
       );
-  }, []);
+  }, [checking]);
 
   const handleSelect = async (roleId: "freelancer" | "employer") => {
     if (!user) return;
@@ -202,148 +224,176 @@ export default function RoleSelect() {
       </div>
 
       <div className="relative z-10 flex w-full max-w-2xl flex-col items-center gap-12">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <h1
-            ref={headingRef}
-            className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
-            style={{ textWrap: "balance", opacity: 0, transform: "translateY(20px)" }}
-          >
-            Welcome to FreeLynk
-          </h1>
-          <p
-            ref={subtextRef}
-            className="max-w-md text-base leading-relaxed text-neutral-400"
-            style={{ opacity: 0, transform: "translateY(14px)" }}
-          >
-            {user?.user_metadata?.full_name
-              ? `Hey ${user.user_metadata.full_name.split(" ")[0]}, `
-              : "How would you like to use "}
-            {user?.user_metadata?.full_name
-              ? "how would you like to use FreeLynk?"
-              : "FreeLynk?"}
-          </p>
-        </div>
-
-        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-          {roles.map((role, i) => {
-            const isActive = selected === role.id;
-            const isDisabled = selected !== null && !isActive;
-
-            return (
-              <div
-                key={role.id}
-                ref={(el) => {
-                  cardRefs.current[i] = el;
-                }}
-                style={{ opacity: 0, transform: "translateY(30px) scale(0.96)" }}
-                className={`transition-all duration-300 ${
-                  isDisabled ? "opacity-40" : ""
-                } ${isActive ? "scale-[1.02]" : ""}`}
+        {checking ? (
+          <div className="flex flex-col items-center gap-4">
+            <svg
+              className="h-8 w-8 animate-spin text-neutral-500"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="2"
+                opacity="0.25"
+              />
+              <path
+                d="M12 2a10 10 0 0 1 10 10"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+            <p className="text-sm text-neutral-500">Setting things up…</p>
+          </div>
+        ) : (
+          <>
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h1
+                ref={headingRef}
+                className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+                style={{ textWrap: "balance", opacity: 0, transform: "translateY(20px)" }}
               >
-                <BorderGlow
-                  animated={true}
-                  backgroundColor="#120F17"
-                  borderRadius={20}
-                  glowColor={role.glowColor}
-                  glowRadius={80}
-                  glowIntensity={3}
-                  edgeSensitivity={0}
-                  coneSpread={35}
-                  colors={role.glowColors}
-                  fillOpacity={0.4}
-                  className="h-full"
-                >
-                  <button
-                    onClick={() => handleSelect(role.id)}
-                    disabled={selected !== null || !user}
-                    className="group flex h-full w-full flex-col items-start gap-5 p-7 text-left"
+                Welcome to FreeLynk
+              </h1>
+              <p
+                ref={subtextRef}
+                className="max-w-md text-base leading-relaxed text-neutral-400"
+                style={{ opacity: 0, transform: "translateY(14px)" }}
+              >
+                {user?.user_metadata?.full_name
+                  ? `Hey ${user.user_metadata.full_name.split(" ")[0]}, `
+                  : "How would you like to use "}
+                {user?.user_metadata?.full_name
+                  ? "how would you like to use FreeLynk?"
+                  : "FreeLynk?"}
+              </p>
+            </div>
+
+            <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+              {roles.map((role, i) => {
+                const isActive = selected === role.id;
+                const isDisabled = selected !== null && !isActive;
+
+                return (
+                  <div
+                    key={role.id}
+                    ref={(el) => {
+                      cardRefs.current[i] = el;
+                    }}
+                    style={{ opacity: 0, transform: "translateY(30px) scale(0.96)" }}
+                    className={`transition-all duration-300 ${
+                      isDisabled ? "opacity-40" : ""
+                    } ${isActive ? "scale-[1.02]" : ""}`}
                   >
-                    <div
-                      className={`flex h-14 w-14 items-center justify-center rounded-xl transition-colors duration-300 ${
-                        isActive
-                          ? "text-white"
-                          : "text-neutral-500 group-hover:text-neutral-300"
-                      }`}
-                      style={{
-                        background: isActive
-                          ? `${role.glowColors[0]}20`
-                          : "rgba(255,255,255,0.04)",
-                      }}
+                    <BorderGlow
+                      animated={true}
+                      backgroundColor="#120F17"
+                      borderRadius={20}
+                      glowColor={role.glowColor}
+                      glowRadius={80}
+                      glowIntensity={3}
+                      edgeSensitivity={0}
+                      coneSpread={35}
+                      colors={role.glowColors}
+                      fillOpacity={0.4}
+                      className="h-full"
                     >
-                      {role.icon}
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <h2
-                        className={`text-xl font-semibold transition-colors duration-300 ${
-                          isActive ? "text-white" : "text-neutral-200"
-                        }`}
+                      <button
+                        onClick={() => handleSelect(role.id)}
+                        disabled={selected !== null || !user}
+                        className="group flex h-full w-full flex-col items-start gap-5 p-7 text-left"
                       >
-                        {role.title}
-                      </h2>
-                      <p className="text-sm leading-relaxed text-neutral-500">
-                        {role.description}
-                      </p>
-                    </div>
+                        <div
+                          className={`flex h-14 w-14 items-center justify-center rounded-xl transition-colors duration-300 ${
+                            isActive
+                              ? "text-white"
+                              : "text-neutral-500 group-hover:text-neutral-300"
+                          }`}
+                          style={{
+                            background: isActive
+                              ? `${role.glowColors[0]}20`
+                              : "rgba(255,255,255,0.04)",
+                          }}
+                        >
+                          {role.icon}
+                        </div>
 
-                    <div
-                      className={`mt-auto flex items-center gap-2 pt-3 text-sm transition-all duration-300 ${
-                        isActive
-                          ? "text-white"
-                          : "text-neutral-600 group-hover:text-neutral-400"
-                      }`}
-                    >
-                      {isActive ? (
-                        <span className="flex items-center gap-2">
-                          <svg
-                            className="h-4 w-4 animate-spin"
-                            viewBox="0 0 24 24"
-                            fill="none"
+                        <div className="flex flex-col gap-2">
+                          <h2
+                            className={`text-xl font-semibold transition-colors duration-300 ${
+                              isActive ? "text-white" : "text-neutral-200"
+                            }`}
                           >
-                            <circle
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              opacity="0.25"
-                            />
-                            <path
-                              d="M12 2a10 10 0 0 1 10 10"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                            />
-                          </svg>
-                          Setting up…
-                        </span>
-                      ) : (
-                        <span className="flex items-center gap-1.5 transition-transform duration-300 group-hover:translate-x-1">
-                          Select
-                          <svg
-                            className="h-4 w-4"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M6 3l5 5-5 5" />
-                          </svg>
-                        </span>
-                      )}
-                    </div>
-                  </button>
-                </BorderGlow>
-              </div>
-            );
-          })}
-        </div>
+                            {role.title}
+                          </h2>
+                          <p className="text-sm leading-relaxed text-neutral-500">
+                            {role.description}
+                          </p>
+                        </div>
 
-        <p ref={hintRef} className="text-center text-xs text-neutral-600" style={{ opacity: 0 }}>
-          You can change this later in your profile settings.
-        </p>
+                        <div
+                          className={`mt-auto flex items-center gap-2 pt-3 text-sm transition-all duration-300 ${
+                            isActive
+                              ? "text-white"
+                              : "text-neutral-600 group-hover:text-neutral-400"
+                          }`}
+                        >
+                          {isActive ? (
+                            <span className="flex items-center gap-2">
+                              <svg
+                                className="h-4 w-4 animate-spin"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                              >
+                                <circle
+                                  cx="12"
+                                  cy="12"
+                                  r="10"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  opacity="0.25"
+                                />
+                                <path
+                                  d="M12 2a10 10 0 0 1 10 10"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                />
+                              </svg>
+                              Setting up…
+                            </span>
+                          ) : (
+                            <span className="flex items-center gap-1.5 transition-transform duration-300 group-hover:translate-x-1">
+                              Select
+                              <svg
+                                className="h-4 w-4"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path d="M6 3l5 5-5 5" />
+                              </svg>
+                            </span>
+                          )}
+                        </div>
+                      </button>
+                    </BorderGlow>
+                  </div>
+                );
+              })}
+            </div>
+
+            <p ref={hintRef} className="text-center text-xs text-neutral-600" style={{ opacity: 0 }}>
+              You can change this later in your profile settings.
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

@@ -146,21 +146,45 @@ export default function RoleSelect() {
   }, []);
 
   const handleSelect = async (roleId: "freelancer" | "employer") => {
+    if (!user) return;
     setSelected(roleId);
     setLoading(true);
 
+    console.log("User object:", user);
+    console.log("User ID:", user.id);
+
     const supabase = createClient();
-    const { error } = await supabase.auth.updateUser({
+    const { error: updateError } = await supabase.auth.updateUser({
       data: { role: roleId },
     });
 
-    if (!error) {
-      window.location.href =
-        roleId === "freelancer" ? "/dashboard" : "/employer";
-    } else {
+    if (updateError) {
+      console.error("Update error:", updateError);
       setLoading(false);
       setSelected(null);
+      return;
     }
+
+    const insertPayload = {
+      user_id: user.id,
+      role: roleId,
+      email: user.email,
+      full_name: user.user_metadata?.full_name ?? null,
+    };
+    console.log("Insert payload:", insertPayload);
+
+    const { error: insertError } = await supabase
+      .from("user_table")
+      .insert(insertPayload);
+
+    if (insertError) {
+      console.error("Insert error:", insertError.message, insertError.details, insertError.hint);
+      setLoading(false);
+      setSelected(null);
+      return;
+    }
+    window.location.href =
+      roleId === "freelancer" ? "/dashboard" : "/employer";
   };
 
   return (
@@ -182,13 +206,14 @@ export default function RoleSelect() {
           <h1
             ref={headingRef}
             className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
-            style={{ textWrap: "balance" }}
+            style={{ textWrap: "balance", opacity: 0, transform: "translateY(20px)" }}
           >
             Welcome to FreeLynk
           </h1>
           <p
             ref={subtextRef}
             className="max-w-md text-base leading-relaxed text-neutral-400"
+            style={{ opacity: 0, transform: "translateY(14px)" }}
           >
             {user?.user_metadata?.full_name
               ? `Hey ${user.user_metadata.full_name.split(" ")[0]}, `
@@ -210,6 +235,7 @@ export default function RoleSelect() {
                 ref={(el) => {
                   cardRefs.current[i] = el;
                 }}
+                style={{ opacity: 0, transform: "translateY(30px) scale(0.96)" }}
                 className={`transition-all duration-300 ${
                   isDisabled ? "opacity-40" : ""
                 } ${isActive ? "scale-[1.02]" : ""}`}
@@ -229,7 +255,7 @@ export default function RoleSelect() {
                 >
                   <button
                     onClick={() => handleSelect(role.id)}
-                    disabled={selected !== null}
+                    disabled={selected !== null || !user}
                     className="group flex h-full w-full flex-col items-start gap-5 p-7 text-left"
                   >
                     <div
@@ -315,7 +341,7 @@ export default function RoleSelect() {
           })}
         </div>
 
-        <p ref={hintRef} className="text-center text-xs text-neutral-600">
+        <p ref={hintRef} className="text-center text-xs text-neutral-600" style={{ opacity: 0 }}>
           You can change this later in your profile settings.
         </p>
       </div>

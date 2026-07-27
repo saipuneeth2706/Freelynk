@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useLayoutEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { gsap } from "gsap";
-// use your own icon import if react-icons is not available
 import { GoArrowUpRight } from "react-icons/go";
 
 type CardNavLink = {
@@ -224,8 +225,8 @@ const CardNav: React.FC<CardNavProps> = ({
             />
           </div>
 
-          <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-            <img src={logo} alt={logoAlt} className="logo h-[28px]" />
+          <Link href="/" className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
+            <Image src={logo} alt={logoAlt} width={28} height={28} className="logo" />
             {logoText && (
               <span
                 className="ml-2 font-semibold text-[18px]"
@@ -234,7 +235,7 @@ const CardNav: React.FC<CardNavProps> = ({
                 {logoText}
               </span>
             )}
-          </div>
+          </Link>
 
           <button
             type="button"
@@ -264,20 +265,40 @@ const CardNav: React.FC<CardNavProps> = ({
                 {item.label}
               </div>
               <div className="nav-card-links mt-auto flex flex-col gap-[2px]">
-                {item.links?.map((lnk, i) => (
-                  <a
-                    key={`${lnk.label}-${i}`}
-                    className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
-                    href={lnk.href}
-                    aria-label={lnk.ariaLabel}
-                  >
-                    <GoArrowUpRight
-                      className="nav-card-link-icon shrink-0"
-                      aria-hidden="true"
-                    />
-                    {lnk.label}
-                  </a>
-                ))}
+                {item.links?.map((lnk, i) => {
+                  const isExternal = lnk.href.startsWith("http") || lnk.href.startsWith("mailto:");
+                  const linkProps = {
+                    className: "nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]",
+                    "aria-label": lnk.ariaLabel,
+                  };
+                  return isExternal ? (
+                    <a
+                      key={`${lnk.label}-${i}`}
+                      {...linkProps}
+                      href={lnk.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <GoArrowUpRight
+                        className="nav-card-link-icon shrink-0"
+                        aria-hidden="true"
+                      />
+                      {lnk.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={`${lnk.label}-${i}`}
+                      {...linkProps}
+                      href={lnk.href}
+                    >
+                      <GoArrowUpRight
+                        className="nav-card-link-icon shrink-0"
+                        aria-hidden="true"
+                      />
+                      {lnk.label}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           ))}

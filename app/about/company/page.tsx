@@ -7,6 +7,7 @@ import Link from "next/link";
 import CardNav from "@/components/CardNav";
 import LineSidebar from "@/components/LineSidebar";
 import CursorGrid from "@/components/CursorGrid";
+import { useLenis } from "lenis/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,6 +80,7 @@ export default function CompanyPage() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [activeSection, setActiveSection] = useState(0);
   const [visibleSections, setVisibleSections] = useState<number[]>([]);
+  const lenis = useLenis();
 
   useEffect(() => {
     const reducedMotion = window.matchMedia(
@@ -475,8 +477,16 @@ export default function CompanyPage() {
       }
     });
 
-    return () => ctx.revert();
-  }, []);
+    if (lenis) {
+      lenis.on('scroll', ScrollTrigger.update);
+      ScrollTrigger.refresh();
+    }
+
+    return () => {
+      if (lenis) lenis.off('scroll', ScrollTrigger.update);
+      ctx.revert();
+    };
+  }, [lenis]);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -504,15 +514,15 @@ export default function CompanyPage() {
   }, []);
 
   const handleSidebarClick = (index: number) => {
-    sectionRefs.current[index]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    const target = sectionRefs.current[index];
+    if (target && lenis) {
+      lenis.scrollTo(target, { offset: 80 });
+    }
   };
 
   return (
     <div className="relative min-h-screen bg-[#0B0B0F]">
-      <div className="fixed inset-0 z-0 bg-[#0B0B0F]">
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[#0B0B0F]">
         <CursorGrid
           cellSize={30}
           color="#0A29FF"

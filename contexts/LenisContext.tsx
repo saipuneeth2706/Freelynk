@@ -1,7 +1,8 @@
 'use client';
 
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback, useRef, useEffect, useLayoutEffect } from 'react';
 import { ReactLenis, type LenisRef } from 'lenis/react';
+import { usePathname } from 'next/navigation';
 
 interface LenisContextValue {
   isReady: boolean;
@@ -23,12 +24,32 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     isReady: false,
     wrapper: null,
   });
+  const lenisRef = useRef<LenisRef | null>(null);
+  const pathname = usePathname();
 
   const ref = useCallback((ref: LenisRef | null) => {
+    lenisRef.current = ref;
     if (ref?.lenis) {
       setCtx({ isReady: true, wrapper: ref.wrapper });
     }
   }, []);
+
+  useEffect(() => {
+    const lenis = lenisRef.current?.lenis;
+    if (!lenis) return;
+    const id = requestAnimationFrame(() => {
+      lenis.resize();
+    });
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  useLayoutEffect(() => {
+    const lenis = lenisRef.current?.lenis;
+    if (!lenis) return;
+    window.scrollTo(0, 0);
+    lenis.scrollTo(0, { immediate: true, force: true });
+    lenis.resize();
+  }, [pathname]);
 
   return (
     <LenisContext.Provider value={ctx}>

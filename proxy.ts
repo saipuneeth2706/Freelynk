@@ -29,7 +29,7 @@ export async function proxy(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const protectedRoutes = ["/role-select", "/dashboard", "/employer_boarding"];
+  const protectedRoutes = ["/role-select", "/dashboard", "/employer_boarding", "/employer_dashboard"];
   const isProtected = protectedRoutes.some((route) =>
     request.nextUrl.pathname.startsWith(route),
   );

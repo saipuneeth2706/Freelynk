@@ -35,13 +35,30 @@ export default function InputForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
+  const [checkingCompany, setCheckingCompany] = useState(true);
 
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(({ data }) => {
-      if (data.user) {
-        setUserId(data.user.id);
+    supabase.auth.getUser().then(async ({ data }) => {
+      if (!data.user) {
+        setCheckingCompany(false);
+        return;
       }
+
+      const { data: company } = await supabase
+        .from("employer_table")
+        .select("id")
+        .eq("user_id", data.user.id)
+        .limit(1)
+        .maybeSingle();
+
+      if (company) {
+        window.location.href = "/employer_dashboard";
+        return;
+      }
+
+      setUserId(data.user.id);
+      setCheckingCompany(false);
     });
   }, []);
 
@@ -107,6 +124,13 @@ export default function InputForm() {
 
   return (
     <div className="dark relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0B0B0F] px-6 py-12">
+      {checkingCompany ? (
+        <div className="flex items-center gap-3 text-neutral-400">
+          <div className="h-5 w-5 animate-spin rounded-full border-2 border-neutral-600 border-t-[#7B3FE4]" />
+          <span className="text-sm">Loading...</span>
+        </div>
+      ) : (
+      <>
       <div className="fixed inset-0 z-0 bg-[#0B0B0F]">
         <CursorGrid
           cellSize={30}
@@ -286,6 +310,8 @@ export default function InputForm() {
           You can update these details later in your company settings.
         </p>
       </div>
+      </>
+      )}
     </div>
   );
 }

@@ -121,10 +121,20 @@ export default function RoleSelect() {
           .single();
 
         if (existing) {
-          window.location.href =
-            existing.role === "freelancer"
-              ? "/dashboard"
-              : "/employer_boarding";
+          if (existing.role === "freelancer") {
+            window.location.href = "/dashboard";
+            return;
+          }
+          const { data: company } = await supabase
+            .from("employer_table")
+            .select("id")
+            .eq("user_id", data.user.id)
+            .limit(1)
+            .maybeSingle();
+
+          window.location.href = company
+            ? "/employer_dashboard"
+            : "/employer_boarding";
           return;
         }
       }
@@ -174,9 +184,6 @@ export default function RoleSelect() {
     setSelected(roleId);
     setLoading(true);
 
-    console.log("User object:", user);
-    console.log("User ID:", user.id);
-
     const supabase = createClient();
     const { error: updateError } = await supabase.auth.updateUser({
       data: { role: roleId },
@@ -189,17 +196,14 @@ export default function RoleSelect() {
       return;
     }
 
-    const insertPayload = {
-      user_id: user.id,
-      role: roleId,
-      email: user.email,
-      full_name: user.user_metadata?.full_name ?? null,
-    };
-    console.log("Insert payload:", insertPayload);
-
     const { error: insertError } = await supabase
       .from("user_table")
-      .insert(insertPayload);
+      .insert({
+        user_id: user.id,
+        role: roleId,
+        email: user.email,
+        full_name: user.user_metadata?.full_name ?? null,
+      });
 
     if (insertError) {
       console.error(
@@ -212,8 +216,19 @@ export default function RoleSelect() {
       setSelected(null);
       return;
     }
-    window.location.href =
-      roleId === "freelancer" ? "/dashboard" : "/employer_boarding";
+    if (roleId === "freelancer") {
+      window.location.href = "/dashboard";
+    } else {
+      const { data: company } = await supabase
+        .from("employer_table")
+        .select("id")
+        .eq("user_id", user.id)
+        .limit(1)
+        .maybeSingle();
+      window.location.href = company
+        ? "/employer_dashboard"
+        : "/employer_boarding";
+    }
   };
 
   return (
